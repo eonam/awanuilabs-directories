@@ -18,7 +18,7 @@ A WordPress-based directory application with React frontend integration.
 ### WordPress Setup
 
 - **Local Environment**
-   - Set up a virtual host at `https://loc.awanuilabs-directories.com/`
+   - Set up a virtual host `https://loc.awanuilabs-directories.com/`
    - Create database named "awanuilabs"
    - Import database dump from `/database` directory
 
