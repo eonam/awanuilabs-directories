@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/collection-centre-details",
+	"version": "0.1.0",
+	"title": "Collection Centre Details",
+	"category": "widgets",
+	"icon": "location",
+	"description": "Display collection centre details including address, coordinates, hours, and more.",
+	"example": {},
+	"supports": {
+			"html": false
+	},
+	"textdomain": "collection-centre-details",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"address": {
+			"type": "string",
+			"default": ""
+		},
+		"latitude": {
+			"type": "string",
+			"default": ""
+		},
+		"longitude": {
+			"type": "string",
+			"default": ""
+		},
+		"openHours": {
+			"type": "string",
+			"default": ""
+		},
+		"contactInformation": {
+			"type": "string",
+			"default": ""
+		},
+		"paymentFacilities": {
+			"type": "string",
+			"default": ""
+		},
+		"accessibility": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

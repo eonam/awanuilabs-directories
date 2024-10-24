@@ -1,0 +1,37 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-collection-centre-details {
+	padding: 1.5rem;
+	background: #f8f9fa;
+	border-radius: 4px;
+}
+
+.wp-block-collection-centre-details h4 {
+	color: #333;
+	margin-bottom: 0.5rem;
+	font-size: 1.1rem;
+}
+
+.wp-block-collection-centre-details p {
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+}
+
+.wp-block-collection-centre-details div:last-child p {
+	margin-bottom: 0;
+}
+
+/**
+* Editor styles
+*/
+.coordinates-group {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
