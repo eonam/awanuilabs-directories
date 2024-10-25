@@ -78,13 +78,6 @@ function App() {
     }
   }, [locations]);
 
-  // Update map bounds when new locations are loaded
-  useEffect(() => {
-    if (locations.length > 0) {
-      fitMapToBounds();
-    }
-  }, [locations, fitMapToBounds]);
-
   // Fetch Locations
   const fetchLocations = useCallback(async (pageNum, currentFilters) => {
     if (!hasMore) return;
@@ -140,10 +133,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchTaxonomies();
-  }, []);
-
   // Handle filter changes with debounce
   const handleFilterChange = (filterType, value) => {
     setFilters(prevFilters => ({ ...prevFilters, [filterType]: value }));
@@ -151,6 +140,19 @@ function App() {
     setHasMore(true);
     setLocations([]); // Clear locations when filters change
   };
+
+  const getMarkerIcon = useCallback((location) => ({
+    path: "M 7,13 C 7,13 11.2,7.519596 11.2,5.2 11.2,2.8804041 9.3195958,1 7,1 4.680404,1 2.8,2.8804041 2.8,5.2 2.8,7.519596 7,13 7,13 Z",
+    fillColor: hoveredLocation?.id === location.id ? '#327fef' : '#ea4335',
+    fillOpacity: 1,
+    strokeWeight: 1,
+    strokeColor: hoveredLocation?.id === location.id ? '#105bc9' : '#c32214',
+    scale: 3,
+  }), [hoveredLocation]);
+
+  useEffect(() => {
+    fetchTaxonomies();
+  }, []);
 
   // Use effect for pagination and filtering
   useEffect(() => {
@@ -161,14 +163,12 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, [page, filters, fetchLocations]);
 
-  const getMarkerIcon = useCallback((location) => ({
-    path: "M 7,13 C 7,13 11.2,7.519596 11.2,5.2 11.2,2.8804041 9.3195958,1 7,1 4.680404,1 2.8,2.8804041 2.8,5.2 2.8,7.519596 7,13 7,13 Z",
-    fillColor: hoveredLocation?.id === location.id ? '#327fef' : '#ea4335',
-    fillOpacity: 1,
-    strokeWeight: 1,
-    strokeColor: hoveredLocation?.id === location.id ? '#105bc9' : '#c32214',
-    scale: 3,
-  }), [hoveredLocation]);
+  // Update map bounds when new locations are loaded
+  useEffect(() => {
+    if (locations.length > 0) {
+      fitMapToBounds();
+    }
+  }, [locations, fitMapToBounds]);
 
   return (
     <Main>
