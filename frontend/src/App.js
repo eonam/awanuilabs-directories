@@ -187,7 +187,7 @@ function App() {
           />
         </LeftPane>
         <MapWrapper>
-          <LoadScript googleMapsApiKey="AIzaSyD5LWkGeItRhDGB3VjLjWBxaLsbk7foFTY">
+          <LoadScript googleMapsApiKey="Ask Noe for API Key">
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               zoom={13}
